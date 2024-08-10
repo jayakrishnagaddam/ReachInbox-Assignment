@@ -11,13 +11,16 @@ GOOGLE_LOGIN_URL = "https://hiring.reachinbox.xyz/api/v1/auth/google-login"
 @app.route('/')
 def index():
     if 'jwt_token' in session:
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('home'))
     
     return render_template('login.html')
 
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
 @app.route('/login')
 def login():
-   
     return redirect(f"{GOOGLE_LOGIN_URL}?redirect_to={FRONTEND_URL}")
 
 @app.route('/google-callback')
@@ -26,7 +29,7 @@ def google_callback():
     token = request.args.get('token')
     if token:
         session['jwt_token'] = token
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('home'))
     else:
         return "Login failed", 400
 
@@ -44,4 +47,4 @@ def logout():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 

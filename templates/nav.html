@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    
+    <style>
+        .navbar-custom {
+            background-color: rgb(0, 0, 0); 
+        }
+        #aid{
+            font-size: 16px;
+        }
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+       
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        body.dark-mode .box {
+            background-color: #1e1e1e;
+            border: 2px solid #444;
+        }
+       
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+    {%include 'bootstrap.html'%}
+
+</head>
+<body class="lead">
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color: white;"><b>📩 ONEBOX</b></a>
+            <div class="row">
+                <div class="col">
+                    <a id="aid" class="nav-link active" aria-current="page" href=""><b> {{ session['username'] }}</b></a>
+                </div>
+                <div class="col">
+                   <a class="btn btn-dark" id="theme-toggle" href="">Theme</a>
+                </div>
+               
+                
+                <div class="col"></div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        // JavaScript code from above
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const themeToggleButton = document.getElementById('theme-toggle');
+
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+
+            themeToggleButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
