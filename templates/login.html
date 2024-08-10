@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% include 'bootstrap.html' %}
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .box {
+            background-color: #1c1c1e;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        .line {
+            margin-top: 4px;
+            border-bottom: 2px solid #444;
+        }
+        .btn-light {
+            background-color: #4285f4;
+            color: white;
+            font-weight: 500;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-light:hover {
+            background-color: #357ae8;
+            color: white;
+        }
+        .text-white a {
+            color: #61dafb;
+            text-decoration: none;
+        }
+        .text-white a:hover {
+            text-decoration: underline;
+        }
+        .sideline{
+        border-left: 4px solid #ccc;
+        border-color: yellow ;
+    
+        }
+        .space-before {
+        padding-left: 15px !important;
+    }
+    </style>
+</head>
+<body style="background-color: black;">
+    <h2 class="mt-4 text-center fixed-top" style="color:white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif"><b>ONEBOX 📩 - Powered by ReachInBox</b></h2>
+   <div class="row">
+    <div class="col">
+        <div class="d-flex justify-content-center align-items-center" style="height: 90vh;">
+            <div class="sideline">
+                <a class="space-before" 
+                style="font-size: 24px; color:#61dafb; text-decoration: none;"
+                 href="#"><b>📩 ONEBOX</b>
+            
+                </a>
+                <p class="space-before" style="color: white; font-size: 24px;">Streamlined Messaging Experience</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="col">
+    <div class="d-flex justify-content-center align-items-center" style="height: 90vh;">
+
+        <div id="main" class="text-center box">
+            <p class="text-center mb-4" style="font-size: 28px; color: #61dafb;"><b>📩 ONEBOX</b></p>
+            <p style="color: #f0f0f0; font-size: 24px;">Create a new account</p>
+            <a class="btn btn-light" href="{{url_for('login')}}">
+                <img src="static/google-icon.png" alt="Google" width="20" height="20" class="me-2">
+                Continue with Google
+            </a>
+            <p class="mt-2 " style="color: white;">Or</p>
+            <a class="btn btn-outline-light " href="#">Create account</a>
+            <p class="text-center text-white mt-2" style="color: #bbb;">Already have an account? 
+                <a href="">Sign in</a>
+            </p>
+        </div>
+    </div>
+    </div>
+</div>
+    <p class="lead text-center" style="color: white; font-size: 14px;">©️ 2024 Jaya Krishna. All rights reserved</p>
+</body>
+</html>
